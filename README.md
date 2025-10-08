@@ -1,4 +1,4 @@
-# devday_blr
+# Devday Bangalore workshop
 This repo contains all the codes that would ber taught during the workshop of devday bangalore 
 
 #  Setup the required project 
