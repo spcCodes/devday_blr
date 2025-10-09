@@ -44,9 +44,27 @@ Rename or copy the .env.sample file to .env file
 
 ### Step 6 : Set up the OpenAI API key , Tavily Search api key and Weather api key
 
+#### For OPENAI api keys
 ```
-Create an OpenAI account at platform.openai.com.
-Navigate to the Dashboard in the top Menu.
-From the side menu, select API Keys.
-Create an API key and save it in the .env file.
+Create an OpenAI account at platform.openai.com and open up API key page
+https://platform.openai.com/settings/organization/api-keys
+
+Create an api key and paste in .env file
+```
+#### For Tavily api keys
+```
+Create an Tavily account and open up API key page
+Link:
+https://app.tavily.com/home
+
+Create an api key and paste in .env file
+```
+
+#### For Weather.com api keys
+```
+Create an Weather API account and create an api key
+Link:
+https://www.weatherapi.com/my/
+
+Create an api key and paste in .env file
 ```
