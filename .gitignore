@@ -215,3 +215,7 @@ __pycache__/
 
 02-studio/.langgraph_api/
 
+langchain_documents/
+langgraph_documents/
+part4_agentic_rag/langchain_documents/
+part4_agentic_rag/langgraph_documents/
