@@ -25,6 +25,19 @@ or
 brew install uv (mac)
 ```
 
+### Step3 : For windows users
+
+```
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/0.9.0/install.ps1 | iex"
+```
+
+after this open up powershell/cmd  and type in the command
+```
+set Path=C:\Users\shash\.local\bin;%Path%   (cmd)
+$env:Path = "C:\Users\shash\.local\bin;$env:Path"   (powershell)
+```
+
 Using uv (recommended)
 The recommended way is to use the package manager uv as it's fast, efficient, and makes the whole process much easier!
 If using uv, we can create a virtual environment in the project directory and install the required packages with two commands.
