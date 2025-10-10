@@ -69,7 +69,7 @@ docker build -t mcp-server .
 ## to run docker file
 
 ```
-docker run -p 8050:8050 -p 8051:8051 --env-file /Users/sumanpaul/Documents/learning/langgraph_tutorial/.env mcp-server
+docker run -p 8050:8050 -p 8051:8051 --env-file /Users/sumanpaul/Desktop/devday_blr/.env mcp-server
 ```
 
 and then run the client
