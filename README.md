@@ -24,6 +24,9 @@ or
 
 brew install uv (mac)
 ```
+Using uv (recommended)
+The recommended way is to use the package manager uv as it's fast, efficient, and makes the whole process much easier!
+If using uv, we can create a virtual environment in the project directory and install the required packages with two commands.
 
 ### Step 4: install the packages using the following command
 
