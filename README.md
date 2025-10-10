@@ -25,23 +25,6 @@ or
 brew install uv (mac)
 ```
 
-### Step3 : For windows users
-
-```
-powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/0.9.0/install.ps1 | iex"
-```
-
-after this open up powershell/cmd  and type in the command
-```
-set Path=C:\Users\shash\.local\bin;%Path%   (cmd)
-$env:Path = "C:\Users\shash\.local\bin;$env:Path"   (powershell)
-```
-
-Using uv (recommended)
-The recommended way is to use the package manager uv as it's fast, efficient, and makes the whole process much easier!
-If using uv, we can create a virtual environment in the project directory and install the required packages with two commands.
-
 ### Step 4: install the packages using the following command
 
 ```
@@ -80,4 +63,178 @@ Link:
 https://www.weatherapi.com/my/
 
 Create an api key and paste in .env file
+```
+
+
+
+## 🧰 Setting up uv on Windows
+
+---
+
+## Prerequisites
+- Python 3.10 or higher installed
+- Command Prompt or PowerShell access
+---
+
+## Installation
+
+### Step 1: Navigate to Your Project Folder
+
+Open Command Prompt (`cmd.exe`) or PowerShell and navigate to your project directory
+
+### Step 2: Install uv
+
+Install uv globally using pip:
+
+```cmd
+pip install uv
+```
+
+You should see output similar to:
+
+```
+Successfully installed uv-0.9.1
+```
+
+### Step 3: Locate the Installation Path
+
+Find where uv was installed:
+
+```cmd
+pip show uv
+```
+
+**Example output:**
+
+```
+Name: uv
+Version: 0.9.1
+Location: c:\users\username\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages
+```
+
+**Note:** The `uv.exe` executable will be in the corresponding `Scripts` folder. For the example above:
+
+```
+C:\Users\username\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\Scripts
+```
+
+### Step 4: Verify uv.exe Exists
+
+Check that the executable is present (replace with your actual path):
+
+```cmd
+dir "C:\Users\username\AppData\Local\...\Python310\Scripts"
+```
+
+You should see `uv.exe` listed in the output.
+
+---
+
+## Configuration
+
+### Step 5: Add uv to Your PATH
+
+If the `uv` command is not recognized, you need to add it to your system PATH:
+
+1. Press `Windows + R`, type `sysdm.cpl`, and hit Enter
+2. Navigate to the **Advanced** tab → click **Environment Variables**
+3. Under **User variables**, select **Path** → click **Edit**
+4. Click **New** and add your Scripts path:
+   ```
+   C:\Users\username\AppData\Local\...\Python310\Scripts
+   ```
+5. Click **OK** to save all dialogs
+6. **Restart your terminal** for changes to take effect
+
+### Step 6: Verify Installation
+
+Test that uv is accessible:
+
+```cmd
+uv --version
+```
+
+If successful, you'll see something like:
+
+```
+uv 0.9.1
+```
+
+🎉 **You're all set!**
+
+---
+
+## Usage
+
+### Sync Project Dependencies
+
+In your project root (where `pyproject.toml` or `requirements.txt` exists), run:
+
+```cmd
+uv sync
+```
+
+This will install all required dependencies in a virtual environment.
+
+---
+
+## Troubleshooting
+
+### Common Error: Python Version Incompatibility
+
+**Error message:**
+
+```
+error: Distribution `onnxruntime==1.23.1` can't be installed because it doesn't have a wheel for CPython 3.14
+hint: You're using CPython 3.14 (`cp314`), but `onnxruntime` (v1.23.1) only has wheels for: cp311, cp312, cp313, cp313t
+```
+
+**Cause:** Your system Python version is too new, and the package doesn't have compatible binaries yet.
+
+### Solution: Pin to a Compatible Python Version
+
+Use uv to install and pin a compatible Python version (e.g., 3.13):
+
+```cmd
+uv python install 3.13
+uv python pin 3.13
+uv sync
+```
+
+**What this does:**
+
+1. Downloads and installs Python 3.13 (if not already available)
+2. Pins your project to use Python 3.13
+3. Creates a virtual environment with the correct Python version
+4. Syncs all dependencies successfully
+
+---
+
+## Quick Reference
+
+### Complete Setup Example
+
+```cmd
+# Navigate to your project
+cd C:\Users\username\your_project
+
+# Install uv
+pip install uv
+
+# Check installation location
+pip show uv
+
+# Add to PATH via System Properties (if needed)
+# sysdm.cpl → Advanced → Environment Variables → Path → Add Scripts folder
+
+# Verify installation
+uv --version
+
+# Sync dependencies
+uv sync
+
+# If you encounter Python version issues
+uv python install 3.13
+uv python pin 3.13
+uv sync
 ```
